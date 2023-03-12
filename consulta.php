@@ -5,30 +5,26 @@
 ?>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu prepa Cáncun</title>
-    <link rel="stylesheet" href="./css/app.css" />
+    <?php
+    include('./includes/head.php')
+    ?>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         <?php
         include('./includes/navbar.php')
         ?>
+        <?php
+        if (isset($_SESSION) && $_SESSION['tipo_usuario'] == "AL") {
 
-        <div class="full-box">
-            <?php
-            if (isset($_SESSION) && $_SESSION['tipo_usuario'] == "AL") {
-
-                include('./includes/consultaAlumno.php');
-            } else {
-                include('./includes/consultaServicios.php');
-            }
-            ?>
-        </div>
+            include('./includes/consultaAlumno.php');
+        } else {
+            include('./includes/consultaServicios.php');
+        }
+        ?>
     </div>
+
 
     <?php
     include('./includes/footer.php')

@@ -6,4 +6,68 @@
 
 .container{
   margin-top:75px;
+
 }
+
+
+.img-carousel{
+  height: 650px !important;
+}
+
+
+
+
+.cardBox {
+  /* float: left; */
+  perspective: 800px;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 5px;
+  height: 180px ;
+  max-width: 100% !important;
+  width: 100% !important;
+
+}
+
+
+.cardBox .card{
+  height: 100%;
+}
+
+
+
+.card .back {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  color: white;
+  display: block;
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.8em;
+  position: absolute;
+  width: 100%;
+}
+
+.card .front strong {
+  background: #fff;
+  border-radius: 100%;
+  color: #222;
+  font-size: 1.5em;
+  line-height: 30px;
+  padding: 0 7px 4px 6px;
+}
+
+
+
+.back P{
+  text-align: justify;
+}
+
+
+.back{
+  background: #5e72e4;
+  border-radius: 5px;
+}
+
+
+
+

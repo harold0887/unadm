@@ -1,22 +1,14 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start();
+include_once("helpers/user.php");
 
 ?>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu prepa Cáncun</title>
-
-    <!-- CDN Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="./css/app.css" />
+    <?php
+    include('./includes/head.php')
+    ?>
 </head>
 
 
@@ -53,70 +45,37 @@
             </div>
             <div class="col-12 col-lg-4">
 
-                <?php if ($_POST) { ?>
+                <?php
+                if ($_POST) {
 
-                    <?php
                     $matricula = $_POST["matricula"];
                     $password = $_POST["password"];
 
-                    $pdo = new PDO('mysql:host=localhost;dbname=dpw2_u2_a2_arac', 'root', '');
-
-                    $consulta = $pdo->prepare("SELECT * FROM usuarios WHERE Matricula = :matricula");
-                    $consulta->bindParam(':matricula', $matricula);
-
-
-                    $consulta->execute();
-
-                    $count = $consulta->rowCount();
-                    $data = $consulta->fetch(PDO::FETCH_ASSOC);
-                    $pdo = null;
-
-                    ?>
-
-                    <?php if ($count) { ?>
-                        <?php if (password_verify($password, $data['Password'])) { ?>
-
-                            <?php
-                            $_SESSION['nombre'] = $data["Nombre"] . " " . $data["ApellidoPaterno"] . " " . $data["ApellidoMaterno"];
-                            $_SESSION['matricula'] = $data["Matricula"];
-                            $_SESSION['tipo_usuario'] = $data["TipoUsuario"];
-                            header("location:welcome.php");
-                            ?>
-
-                        <?php } else { ?>
-                            <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
-                                Usuario o contraseña incorrectos
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        <?php }  ?>
-
-
-
+                    $user = new User;
+                }
+                ?>
+                <?php if (isset($user)) { ?>
+                    <?php if ($user->login($matricula, $password)) { ?>
+                        <?php
+                        return header("location:welcome.php");
+                        $user->close();
+                        ?>
+                    <?php } else { ?>
+                        <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                            Usuario o contraseña incorrectos
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     <?php }  ?>
-                <?php }  ?>
 
+
+
+                <?php }  ?>
             </div>
         </div>
     </div>
-
-
-
-
-
-
     <?php
     include('./includes/footer.php')
     ?>
-
-    <!-- CDN Boostrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
 </body>
-
-
-
-
-
 
 </html>

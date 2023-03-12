@@ -1,7 +1,9 @@
 $(function () {
+
+  
   var pathname = window.location.pathname;
-  var ruta = pathname.substring(17, 50);
-  console.log(ruta);
+  var ruta = pathname.substring(7, 50);
+  console.log(pathname);
 
   switch (ruta) {
     case "index.php":

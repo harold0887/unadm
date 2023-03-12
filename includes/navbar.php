@@ -40,13 +40,8 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./logout.php">Salir</a></li>
-
-
-
-
                         </ul>
                     </li>
-
 
                 <?php }  ?>
 

@@ -1,23 +1,46 @@
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <h1 class="title">Preinscribir asignatura</h1>
+
+        <form action="preinscribir.php" method="post">
+
+            <div class="form-group">
+                <label for="">Ingresar la matricula del alumno</label>
+                <input class="form-control" type="number" name="matricula" placeholder="Matricula...">
+
+
+            </div>
+
+            <div class="form-group">
+            <label for="exampleFormControlSelect1">Selecciona la asignatura</label>
+                <select class="form-control" name="asignatura" id="">
+                    <option value="" selected disabled>Seleccione una asignatura...</option>
+                    <option value="Desarrollo web 1">Desarrollo web 1</option>
+                    <option value="Desarrollo web 2">Desarrollo web 2</option>
+                    <option value="POO 1">POO 1</option>
+                    <option value="POO 2">POO 2</option>
+                    <option value="POO 3">POO 3</option>
+                </select>
+
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary mt-3">Registrar Asignatura</button>
+        </form>
+    </div>
+
+    <div class="col-12 col-lg-6">
+
+    </div>
+</div>
+
 <div class="box-content">
 
 
 </div>
 <div class="box-content">
-    <h1 class="title">Preinscribir asignatura</h1>
 
-    <form action="preinscribir.php" method="post">
-        <label for="">Ingresar la matricula del alumno</label>
-        <input type="number" name="matricula" placeholder="Matricula...">
-        <select name="asignatura" id="">
-            <option value="" selected>Seleccione una asignatura...</option>
-            <option value="Desarrollo web 1">Desarrollo web 1</option>
-            <option value="Desarrollo web 2">Desarrollo web 2</option>
-            <option value="POO 1">POO 1</option>
-            <option value="POO 2">POO 2</option>
-            <option value="POO 3">POO 3</option>
-        </select>
-        <button type="submit" class="btn">Registrar Asignatura</button>
-    </form>
 
 </div>
 <div class="box-content">
